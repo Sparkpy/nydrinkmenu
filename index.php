@@ -3,13 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Year Drinks</title>
+    <title>New Year Menu</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&display=swap" rel="stylesheet">
+    <style>
+        .title-image {
+            display:flex;
+            background-color: rgb(225, 225, 225);
+            padding: 25px 0px 25px 0px;
+        }
+        .title-image > img {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .title-text {
+            margin: 25px 0px 25px 0px;
+            font-family: 'Alegreya SC', serif;
+        }
+        .nav-img {
+            height: 56px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
           <div class="container">
-            <a class="navbar-brand" href="#">Drinks</a>
+            <a class="navbar-brand" href="#"><img src="./images/navlogo.png" alt="Navbar Logo" class="nav-img"></a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -32,17 +54,29 @@
             </div>
       </div>
     </nav>
-    <div class="title" style="margin-top: 25px;">
-        <p class="display-2 text-center">
-            <?php
-                if (isset($_COOKIE["Name"])) {
-                    echo "Welcome, ".$_COOKIE["Name"]. "!";
-                }
-                else {
-                    echo "Welcome, Guest!";
-                }
-            ?>
-        </p>
+    <div class="title">
+        <div class="title-image">
+            <img src="./images/logo.png" alt="New Year Menu Logo">
+        </div>
+        <div class="title-text text-center">
+            <p class="display-2">
+                <?php
+                    if (isset($_COOKIE["Name"])) {
+                        echo "Welcome, ".$_COOKIE["Name"]. "!";
+                    }
+                    else {
+                        echo "Welcome, Guest!";
+                    }
+                ?>
+            </p>
+            <p class="text-body-secondary">
+                <?php
+                    if (!isset($_COOKIE["Name"])) {
+                        echo "Please sign in.";
+                    }
+                ?>
+            </p>
+        </div>
     </div>
     <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
