@@ -5,10 +5,9 @@ Ideally I want the guests to walk in, scan a QR code and be sent to the menu web
 
 ### Implemented Features:
 1. Navbar
-2. Mobile Support (duh)
+2. Login System
 
 ### Planned Features:
-1. Entering the guest's name (Saved in a cookie).
-2. Horizontally scrollable drink selection cards.
-3. A **pending drinks** page.
-4. Push notifications to the waiters (Me and my friend).
+1. Horizontally scrollable drink selection cards.
+2. A **pending drinks** page.
+3. Push notifications to the waiters (Me and my friend).
