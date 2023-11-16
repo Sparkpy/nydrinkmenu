@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Alegreya+SC&family=Libre+Caslon+Display&display=swap" rel="stylesheet"> 
     <style>
         .title-image {
             display:flex;
@@ -26,11 +27,28 @@
         .nav-img {
             height: 56px;
         }
+        .cards {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .cards > .card {
+            margin: 10px 0px 30px 0px;
+        }
+        .card {
+            font-family: 'Alegreya SC', serif;
+
+        }
+        .card-button {
+            width: 100%;
+        }
+
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-          <div class="container">
+        <div class="container">
             <a class="navbar-brand" href="#"><img src="./images/navlogo.png" alt="Navbar Logo" class="nav-img"></a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -69,12 +87,14 @@
                     }
                 ?>
             </p>
-            <p class="text-body-secondary">
-                <?php
-                    if (!isset($_COOKIE["Name"])) {
-                        echo "Please sign in.";
-                    }
-                ?>
+            <p class="text-body-secondary" data-bs-toggle="modal" data-bs-target="#modalId">
+                <u>
+                    <?php
+                        if (!isset($_COOKIE["Name"])) {
+                            echo "Please sign in.";
+                        }
+                    ?>
+                </u>
             </p>
         </div>
     </div>
@@ -88,15 +108,34 @@
                 <div class="modal-body">
                     <form action="./login.php" method="post">
                         <div class="mb-3">
-                        <label for="" class="form-label">Name</label>
-                        <input type="text" class="form-control" name="name" id="InputName" aria-describedby="helpId" placeholder="">
-                        <small id="helpId" class="form-text text-muted">This will be used to identify you when you order drinks.</small>
-                        <div class="buttons" style="margin-top:25px;">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save</input>
+                            <label for="" class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name" id="InputName" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">This will be used to identify you when you order drinks.</small>
+                            <div class="buttons" style="margin-top:25px;">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save</input>
+                            </div>
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="cards">
+        <div class="card card-1" style="width: 80%;">
+            <img src="./images/danielcoffee.png" class="card-img-top" alt="Daniel's Coffee Logo">
+            <div class="card-body">
+                <h3 class="card-title daniel-title"><b>Daniel's Coffee</b></h3>
+                <p class="card-text">If you're gonna drink milk coffee tonight, skip the alcohol.</p>
+                <a href="#" class="btn btn-secondary card-button">Go to Page</a>
+            </div>
+        </div>
+        <div class="card card-2" style="width: 80%;">
+            <img src="./images/stevenalcohol.png" class="card-img-top" alt="Steven's Alcohol Logo">
+            <div class="card-body">
+                <h3 class="card-title"><b>Steven's Alcohol</b></h3>
+                <p class="card-text">no why :<</p>
+                <a href="#" class="btn btn-secondary card-button">Go to Page</a>
             </div>
         </div>
     </div>
