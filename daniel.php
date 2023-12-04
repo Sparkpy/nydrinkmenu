@@ -68,11 +68,7 @@
             </div>
         </div>
     </div>
-    <div class="title">
-        <div class="title-image">
-            <img src="./images/danielcoffee.png" alt="Daniel's Coffee Logo">
-        </div>
-    </div>
+    <img src="./images/danielcoffee.png" alt="Daniel's Coffee Logo" width="100%">
 </body>
 </html>
 <script src="./bootstrap/bootstrap.min.js"></script>
