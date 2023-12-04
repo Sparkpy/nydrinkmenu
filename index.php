@@ -6,50 +6,12 @@
     <title>New Year Menu</title>
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Alegreya+SC&family=Libre+Caslon+Display&display=swap" rel="stylesheet"> 
-    <style>
-        .title-image {
-            display:flex;
-            background-color: rgb(225, 225, 225);
-            padding: 25px 0px 25px 0px;
-        }
-        .title-image > img {
-            width: 90%;
-            margin: 0 auto;
-        }
-        .title-text {
-            margin: 25px 0px 25px 0px;
-            font-family: 'Alegreya SC', serif;
-        }
-        .title-subtext {
-            margin-top: -10px;
-        }
-        .nameinfo {
-            margin-top: 25px;
-        }
-        .nav-img {
-            height: 56px;
-        }
-        .cards {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .cards > .card {
-            margin: 10px 0px 30px 0px;
-        }
-        .card {
-            font-family: 'Alegreya SC', serif;
-
-        }
-        .card-button {
-            width: 100%;
-        }
-    </style>
+        
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
