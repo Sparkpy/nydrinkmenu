@@ -24,6 +24,12 @@
             margin: 25px 0px 25px 0px;
             font-family: 'Alegreya SC', serif;
         }
+        .title-subtext {
+            margin-top: -10px;
+        }
+        .nameinfo {
+            margin-top: 25px;
+        }
         .nav-img {
             height: 56px;
         }
@@ -43,7 +49,6 @@
         .card-button {
             width: 100%;
         }
-
     </style>
 </head>
 <body>
@@ -65,12 +70,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./steven.php">Steven's Alchocol</a>
                     </li>
-                    <li class="nav-item">
-                        <button class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalId">Sign In</a>
-                    </li>
+                    <li class='nav-item'>
+                    <?php
+                        // Sign In / Sign Out
+                        if (isset($_COOKIE["Name"])) {
+                            echo "<a class='nav-link link-underline link-underline-opacity-0 text-secondary' href='./logout.php'>Sign Out</a></li>";
+                        }
+                        else {
+                            echo "<button class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#modalId'>Sign In</button>
+                            </li>";
+                        }
+                    ?>
                 </ul>
             </div>
-      </div>
+        </div>
     </nav>
     <div class="title">
         <div class="title-image">
@@ -87,7 +100,7 @@
                     }
                 ?>
             </p>
-            <p class="text-body-secondary" data-bs-toggle="modal" data-bs-target="#modalId">
+            <p class="text-body-secondary title-subtext" data-bs-toggle="modal" data-bs-target="#modalId">
                 <u>
                     <?php
                         if (!isset($_COOKIE["Name"])) {
@@ -125,16 +138,16 @@
         <div class="card card-1" style="width: 80%;">
             <img src="./images/danielcoffee.png" class="card-img-top" alt="Daniel's Coffee Logo">
             <div class="card-body">
-                <h3 class="card-title daniel-title"><b>Daniel's Coffee</b></h3>
-                <p class="card-text">If you're gonna drink milk coffee tonight, skip the alcohol.</p>
+                <!-- <h3 class="card-title daniel-title"><b>Daniel's Coffee</b></h3> -->
+                <p class="card-text">Mixing milk and alcohol is not recommended, unless it's Irish coffee.</p>
                 <a href="#" class="btn btn-secondary card-button">Go to Page</a>
             </div>
         </div>
         <div class="card card-2" style="width: 80%;">
             <img src="./images/stevenalcohol.png" class="card-img-top" alt="Steven's Alcohol Logo">
             <div class="card-body">
-                <h3 class="card-title"><b>Steven's Alcohol</b></h3>
-                <p class="card-text">no why :<</p>
+                <!-- <h3 class="card-title"><b>Steven's Alcohol</b></h3> -->
+                <p class="card-text">Steven's quote</p>
                 <a href="#" class="btn btn-secondary card-button">Go to Page</a>
             </div>
         </div>
