@@ -6,6 +6,7 @@
     <title>Steven's Alcohol</title>
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&display=swap" rel="stylesheet">
@@ -65,6 +66,11 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="title">
+        <div class="title-image">
+            <img src="./images/stevenalcohol.png" alt="Steven's Alcohol Logo">
         </div>
     </div>
 </body>

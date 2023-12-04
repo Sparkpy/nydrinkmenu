@@ -6,6 +6,7 @@
     <title>Daniel's Coffee</title>
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&display=swap" rel="stylesheet">
@@ -67,8 +68,11 @@
             </div>
         </div>
     </div>
-    <label for="customRange2" class="form-label">Example range</label>
-    <input type="range" class="form-range" min="0" max="5" id="customRange2">
+    <div class="title">
+        <div class="title-image">
+            <img src="./images/danielcoffee.png" alt="Daniel's Coffee Logo">
+        </div>
+    </div>
 </body>
 </html>
 <script src="./bootstrap/bootstrap.min.js"></script>
