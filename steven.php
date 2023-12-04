@@ -29,10 +29,44 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Steven's Alchocol</a>
                     </li>
+                    <li class='nav-item'>
+                    <?php
+                        // Sign In / Sign Out
+                        if (isset($_COOKIE["Name"])) {
+                            echo "<a class='nav-link link-underline link-underline-opacity-0 text-secondary' href='./logout.php'>Sign Out</a></li>";
+                        }
+                        else {
+                            echo "<button class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#modalId'>Sign In</button>
+                            </li>";
+                        }
+                    ?>
                 </ul>
             </div>
       </div>
     </nav>
+    <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Sign In</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="./login.php" method="post">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name" id="InputName" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">This will be used to identify you when you order drinks.</small>
+                            <div class="buttons" style="margin-top:25px;">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save</input>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 <script src="./bootstrap/bootstrap.min.js"></script>

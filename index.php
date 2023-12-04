@@ -140,7 +140,7 @@
             <div class="card-body">
                 <!-- <h3 class="card-title daniel-title"><b>Daniel's Coffee</b></h3> -->
                 <p class="card-text">Mixing milk and alcohol is not recommended, unless it's Irish coffee.</p>
-                <a href="#" class="btn btn-secondary card-button">Go to Page</a>
+                <a href="./daniel.php" class="btn btn-secondary card-button">Go to Page</a>
             </div>
         </div>
         <div class="card card-2" style="width: 80%;">
@@ -148,7 +148,7 @@
             <div class="card-body">
                 <!-- <h3 class="card-title"><b>Steven's Alcohol</b></h3> -->
                 <p class="card-text">Steven's quote</p>
-                <a href="#" class="btn btn-secondary card-button">Go to Page</a>
+                <a href="./steven.php" class="btn btn-secondary card-button">Go to Page</a>
             </div>
         </div>
     </div>
