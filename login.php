@@ -30,6 +30,12 @@
         case "resen":
             $name = "Petar";
             break;
+        case "fros":
+            $name = "Frosina";
+            break;
+        case "frose":
+            $name = "Frosina";
+            break;
         default:
             $name = ucfirst($name);
     }
