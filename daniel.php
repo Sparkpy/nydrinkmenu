@@ -70,27 +70,31 @@
     </div>
     <img src="./images/danielcoffee.png" alt="Daniel's Coffee Logo" width="100%">
     <!-- The actual drinks -->
-    .<div class="card-group">
+    <div class="sugar-slider">
+        <label for="customRange2" class="form-label">Sugar</label>
+        <input type="range" class="form-range" min="0" max="3" id="customRange2">
+    </div>
+    <div class="card-group">
         <div class="card">
             <img
                 class="card-img-top"
-                src="holder.js/100x180/"
-                alt="Card image cap"
+                src="./images/coffee/americano.webp"
+                alt="Americano"
             />
             <div class="card-body">
-                <h4 class="card-title"></h4>
-                <p class="card-text">Text</p>
+                <h4 class="card-title">Americano</h4>
+                <p class="card-text">150ml</p>
             </div>
         </div>
         <div class="card">
             <img
                 class="card-img-top"
-                src="holder.js/100x180/"
-                alt="Card image cap"
+                src="./images/coffee/espresso.webp"
+                alt="Espresso"
             />
             <div class="card-body">
-                <h4 class="card-title">Title</h4>
-                <p class="card-text">Text</p>
+                <h4 class="card-title">Espresso</h4>
+                <p class="card-text"></p>
             </div>
         </div>
     </div>

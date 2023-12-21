@@ -14,3 +14,5 @@ Ideally I want the guests to walk in, scan a QR code and be sent to the menu web
 1. Vertically scrollable drink selection cards.
 2. A **pending drinks** page.
 3. Push notifications to the waiters (Me and my friend).
+4. Brand Select which changes the available coffee options
+5. Database where the orders are stored.

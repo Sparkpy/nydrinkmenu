@@ -41,3 +41,10 @@
     width: 80%;
     margin: 0 auto;
 }
+
+.sugar-slider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
