@@ -69,6 +69,32 @@
         </div>
     </div>
     <img src="./images/danielcoffee.png" alt="Daniel's Coffee Logo" width="100%">
+    <!-- The actual drinks -->
+    .<div class="card-group">
+        <div class="card">
+            <img
+                class="card-img-top"
+                src="holder.js/100x180/"
+                alt="Card image cap"
+            />
+            <div class="card-body">
+                <h4 class="card-title"></h4>
+                <p class="card-text">Text</p>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                class="card-img-top"
+                src="holder.js/100x180/"
+                alt="Card image cap"
+            />
+            <div class="card-body">
+                <h4 class="card-title">Title</h4>
+                <p class="card-text">Text</p>
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>
 <script src="./bootstrap/bootstrap.min.js"></script>

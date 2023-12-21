@@ -36,3 +36,8 @@
 .card-button {
     width: 100%;
 }
+
+.card-group {
+    width: 80%;
+    margin: 0 auto;
+}
