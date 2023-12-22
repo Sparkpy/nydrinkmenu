@@ -75,6 +75,17 @@
         <input type="range" class="form-range" min="0" max="3" id="customRange2">
     </div>
     <div class="card-group">
+    <?php
+        // Solve this black magic later
+        $db = mysqli_connect("127.0.0.1", "root", "", "nydrinkmenu");
+        $result = $db->query("SELECT * FROM `coffee` WHERE `brand`=\"Nescafe\" ORDER BY `id`    ;");
+        for ($row_no = $result->num_rows - 1; $row_no >= 0; $row_no--) {
+            $result->data_seek($row_no);
+            $row = $result->fetch_assoc();
+            echo " id = " . $row['name'] . "\n";
+        }
+    ?>
+    
         <div class="card">
             <img
                 class="card-img-top"
@@ -98,7 +109,6 @@
             </div>
         </div>
     </div>
-    
 </body>
 </html>
 <script src="./bootstrap/bootstrap.min.js"></script>
