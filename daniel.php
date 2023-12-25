@@ -104,7 +104,8 @@
                 echo "<div class='card ".$row['brand']." milk-".$row['lactose']."'>";
                 echo "<img class='card-img-top' src='./images/coffee/".$row['imagepath']."'/>";
                 echo "<div class='card-body'>";
-                echo "<h4 class='card-title'>".$row['name']."</h4>";
+                echo "<h4 class='card-title'>".$row['name']."<span class='text-muted fs-6' style='margin-left: 6px;'>".$row['volume']."ml</span></h4>";
+                echo "";
                 echo "<p class='card-text'>".$row['description']."</p>";
                 echo "</div></div>";
             }
@@ -123,12 +124,9 @@
     const goldcafe = Array.from(document.getElementsByClassName("Goldcafe"));
     const cards = Array.from(document.getElementsByClassName("card"));
 
-    console.log(nescafe)
-
     function updateDisplayedDrinks() {
         let selectedBrand = Array.from(brandRadios).find(radio => radio.checked)?.nextElementSibling.textContent;
         let isLactoseIntolerant = lactoseCheckbox.checked;
-        console.log(selectedBrand, isLactoseIntolerant);
 
         if (selectedBrand == "Nescafe") {
             nescafe.forEach(card => {
