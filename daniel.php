@@ -70,22 +70,36 @@
     </div>
     <img src="./images/danielcoffee.png" alt="Daniel's Coffee Logo" width="100%">
     <!-- The actual drinks -->
-    <div class="sugar-slider">
-        <label for="customRange2" class="form-label">Sugar</label>
-        <input type="range" class="form-range" min="0" max="3" id="customRange2">
-    </div>
+    <form action="./search.php" method="post">
+        <div class="sugar-slider">
+            <label for="customRange2" class="form-label">Sugar</label>
+            <input type="range" class="form-range" min="0" max="3" id="customRange2">
+        </div>
+        <div class="brand d-flex justify-content-center" style="margin-bottom: 30px;">
+            <div class="btn-group brand" role="group" aria-label="Basic radio toggle button group" style="width: 80%;">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="btnradio1">Nescafe</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio2">Nescafe Gold</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio3">Goldcafe</label>
+            </div>
+        </div>
+    </form>
+
     <div class="card-group">
     <?php
         // Solve this black magic later
-        $db = mysqli_connect("127.0.0.1", "root", "", "nydrinkmenu");
-        $result = $db->query("SELECT * FROM `coffee` WHERE `brand`=\"Nescafe\" ORDER BY `id`    ;");
-        for ($row_no = $result->num_rows - 1; $row_no >= 0; $row_no--) {
-            $result->data_seek($row_no);
-            $row = $result->fetch_assoc();
-            echo " id = " . $row['name'] . "\n";
-        }
+        // $db = mysqli_connect("127.0.0.1", "root", "", "nydrinkmenu");
+        // $result = $db->query("SELECT * FROM `coffee` WHERE `brand`=\"Goldcafe\" ORDER BY `id`    ;");
+        // for ($row_no = $result->num_rows - 1; $row_no >= 0; $row_no--) {
+        //     $result->data_seek($row_no);
+        //     $row = $result->fetch_assoc();
+        //     echo " id = " . $row['name'] . "\n";
+        // }
     ?>
-    
         <div class="card">
             <img
                 class="card-img-top"
