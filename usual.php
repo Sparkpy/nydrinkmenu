@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Year Menu</title>
+    <title>Steven's Alcohol</title>
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Alegreya+SC&family=Libre+Caslon+Display&display=swap" rel="stylesheet"> 
-        
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="./images/navlogo.png" alt="Navbar Logo" class="nav-img"></a>
+          <div class="container">
+          <a class="navbar-brand" href="./index.php"><img src="./images/navlogo.png" alt="Navbar Logo" height="56px"></a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -24,13 +22,13 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" aria-current="page">Home</a>
+                        <a class="nav-link" href="./index.php" aria-current="page">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./daniel.php">Daniel's Coffee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./steven.php">Stefan's Alcohol</a>
+                        <a class="nav-link active" href="#">Stefan's Alcohol</a>
                     </li>
                     <li class='nav-item'>
                     <?php
@@ -45,48 +43,8 @@
                     ?>
                 </ul>
             </div>
-        </div>
+      </div>
     </nav>
-    <?php
-        if (isset($_GET['status'])) {
-            $status = $_GET['status'];
-            
-            if ($status === 'success') {
-                echo file_get_contents("./success.html");
-            } else if ($status === 'error') {
-                echo file_get_contents("./error.html");
-            } else if ($status === 'cooldown') {
-                echo file_get_contents("./cooldown.html");
-            }
-        }
-    ?>
-    
-    <div class="title">
-        <div class="title-image">
-            <img src="./images/logo.png" alt="New Year Menu Logo">
-        </div>
-        <div class="title-text text-center">
-            <p class="display-2">
-                <?php
-                    if (isset($_COOKIE["Name"])) {
-                        echo "Welcome, ".$_COOKIE["Name"]. "!";
-                    }
-                    else {
-                        echo "Welcome, Guest!";
-                    }
-                ?>
-            </p>
-            <p class="text-body-secondary title-subtext" data-bs-toggle="modal" data-bs-target="#modalId">
-                <u>
-                    <?php
-                        if (!isset($_COOKIE["Name"])) {
-                            echo "Please sign in.";
-                        }
-                    ?>
-                </u>
-            </p>
-        </div>
-    </div>
     <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
             <div class="modal-content">
@@ -110,37 +68,26 @@
             </div>
         </div>
     </div>
-    <div class="cards">
-        <div class="card card-1" style="width: 80%;">
-            <img src="./images/danielcoffee.png" class="card-img-top" alt="Daniel's Coffee Logo">
-            <div class="card-body">
-                <!-- <h3 class="card-title daniel-title"><b>Daniel's Coffee</b></h3> -->
-                <p class="card-text">Mixing milk and alcohol is not recommended, unless it's Irish coffee.</p>
-                <a href="./daniel.php" class="btn btn-secondary card-button">Go to Page</a>
-            </div>
-        </div>
-        <div class="card card-2" style="width: 80%;">
-            <img src="./images/stevenalcohol.png" class="card-img-top" alt="Steven's Alcohol Logo">
-            <div class="card-body">
-                <!-- <h3 class="card-title"><b>Steven's Alcohol</b></h3> -->
-                <p class="card-text">Liquor probably isn't a good solution but it's worth a shot.</p>
-                <a href="./steven.php" class="btn btn-secondary card-button">Go to Page</a>
-            </div>
-        </div>
-        <div class="card card-3" style="width: 80%;">
-            <img src="./images/theusual.png" class="card-img-top" alt="The Usual Logo">
-            <div class="card-body">
-                <!-- <h3 class="card-title"><b>The Usual</b></h3> -->
-                <p class="card-text">What you can expect to see at any party.</p>
-                <a href="./usual.php" class="btn btn-secondary card-button">Go to Page</a>
-            </div>
-        </div>
-    </div>
+    <img src="./images/theusual.png" alt="The Usual Logo"  style="width:100%; margin-bottom: 20px;">
+    <form action="./order.php" method="post">
+        <div class="card-group" id="cardGroup">
+            <?php
+                $db = mysqli_connect("127.0.0.1", "root", "", "nydrinkmenu");
+                $result = $db->query("SELECT * FROM `usual` ORDER BY `id`;");
+                for ($row_no = 0; $row_no < $result->num_rows; $row_no++) {
+                    $result->data_seek($row_no);
+                    $row = $result->fetch_assoc();
+                    echo
+                    "<div class='card'>".
+                    "<img class='card-img-top' src='./images/usual/".$row['imagepath']."'/>".
+                    "<div class='card-body'>".
+                    "<h4 class='card-title'>".$row['name']."<span class='text-muted fs-6' style='margin-left: 6px;'>".$row['volume']."ml</span></h4>".
+                    "<p class='card-text'>".$row['description']."</p>".
+                    "<button type='submit' class='btn btn-primary' name='order_usual' value='".$row['id']."'>Order ".$row['name']."</button>".
+                    "</div></div>";
+                }
+            ?>
+    </form>
 </body>
 </html>
-
-<script>
-    const myModal = new bootstrap.Modal(document.getElementById('modalId'), options)
-</script>
 <script src="./bootstrap/bootstrap.min.js"></script>
-

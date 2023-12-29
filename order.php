@@ -14,13 +14,17 @@
         $sugar = $_POST['sugar'];
 
         $query = "INSERT INTO orderlist (order_id, drink_id, sugar, username, type) VALUES ('".$order_id."','".$drink_id."','".$sugar."','".$name."', 'coffee')";
-
     }
     else if (isset($_POST['order_alcohol'])) {
         $drink_id = $_POST['order_alcohol'];
 
         $query = "INSERT INTO orderlist (order_id, drink_id, username, type) VALUES ('".$order_id."','".$drink_id."','".$name."', 'alcohol')";
-    }   
+    } 
+    else if (isset($_POST['order_usual'])) {
+        $drink_id = $_POST['order_usual'];
+
+        $query = "INSERT INTO orderlist (order_id, drink_id, username, type) VALUES ('".$order_id."','".$drink_id."','".$name."', 'usual')";
+    }
 
     // Check if the cooldown cookie is set
     if (!isset($_COOKIE["QueryCooldown"])) {

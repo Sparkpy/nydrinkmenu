@@ -28,7 +28,7 @@
                         <a class="nav-link active" href="#">Daniel's Coffee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./steven.php">Steven's Alchocol</a>
+                        <a class="nav-link " href="./steven.php">Stefan's Alcohol</a>
                     </li>
                     <li class='nav-item'>
                     <?php
