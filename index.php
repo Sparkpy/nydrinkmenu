@@ -47,6 +47,20 @@
             </div>
         </div>
     </nav>
+    <?php
+        if (isset($_GET['status'])) {
+            $status = $_GET['status'];
+            
+            if ($status === 'success') {
+                echo file_get_contents("./success.html");
+            } else if ($status === 'error') {
+                echo file_get_contents("./error.html");
+            } else if ($status === 'cooldown') {
+                echo file_get_contents("./cooldown.html");
+            }
+        }
+    ?>
+    
     <div class="title">
         <div class="title-image">
             <img src="./images/logo.png" alt="New Year Menu Logo">

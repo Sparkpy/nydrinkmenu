@@ -70,10 +70,10 @@
     </div>
     <img src="./images/danielcoffee.png" alt="Daniel's Coffee Logo" width="100%">
     <!-- The actual drinks -->
-    <form action="./sendcoffee.php" method="post">
+    <form action="./order.php" method="post">
         <div class="sugar-slider">
             <label for="customRange2" class="form-label">Sugar (0-3 spoons)</label>
-            <input type="range" class="form-range" min="0" max="3" id="customRange2">
+            <input type="range" name="sugar" class="form-range" min="0" max="3" id="customRange2">
         </div>
         <div class="brand d-flex justify-content-left" style="margin: 0 auto; margin-bottom: 0px; width:80%">
             <div class="form-check form-switch">
@@ -95,19 +95,19 @@
         </div>
         <div class="card-group" id="cardGroup">
         <?php
-            // Solve this black magic later
             $db = mysqli_connect("127.0.0.1", "root", "", "nydrinkmenu");
             $result = $db->query("SELECT * FROM `coffee` ORDER BY `id`;");
             for ($row_no = 0; $row_no < $result->num_rows; $row_no++) {
                 $result->data_seek($row_no);
                 $row = $result->fetch_assoc();
-                echo "<div class='card ".$row['brand']." milk-".$row['lactose']."'>";
-                echo "<img class='card-img-top' src='./images/coffee/".$row['imagepath']."'/>";
-                echo "<div class='card-body'>";
-                echo "<h4 class='card-title'>".$row['name']."<span class='text-muted fs-6' style='margin-left: 6px;'>".$row['volume']."ml</span></h4>";
-                echo "";
-                echo "<p class='card-text'>".$row['description']."</p>";
-                echo "</div></div>";
+                echo
+                "<div class='card ".$row['brand']." milk-".$row['lactose']."'>".
+                "<img class='card-img-top' src='./images/coffee/".$row['imagepath']."'/>".
+                "<div class='card-body'>".
+                "<h4 class='card-title'>".$row['name']."<span class='text-muted fs-6' style='margin-left: 6px;'>".$row['volume']."ml</span></h4>".
+                "<p class='card-text'>".$row['description']."</p>".
+                "<button type='submit' class='btn btn-primary' name='order_coffee' value='".$row['id']."'>Order ".$row['name']."</button>".
+                "</div></div>";
             }
         ?>
         </div>
