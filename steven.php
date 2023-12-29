@@ -68,7 +68,26 @@
             </div>
         </div>
     </div>
-    <img src="./images/stevenalcohol.png" alt="Steven's Alcohol Logo"  width="100%">
+    <img src="./images/stevenalcohol.png" alt="Steven's Alcohol Logo"  style="width:100%; margin-bottom: 20px;">
+    <form action="./order.php" method="post">
+        <div class="card-group" id="cardGroup">
+            <?php
+                $db = mysqli_connect("127.0.0.1", "root", "", "nydrinkmenu");
+                $result = $db->query("SELECT * FROM `alcohol` ORDER BY `id`;");
+                for ($row_no = 0; $row_no < $result->num_rows; $row_no++) {
+                    $result->data_seek($row_no);
+                    $row = $result->fetch_assoc();
+                    echo
+                    "<div class='card'>".
+                    "<img class='card-img-top' src='./images/alcohol/".$row['imagepath']."'/>".
+                    "<div class='card-body'>".
+                    "<h4 class='card-title'>".$row['name']."<span class='text-muted fs-6' style='margin-left: 6px;'>".$row['volume']."ml</span></h4>".
+                    "<p class='card-text'>".$row['description']."</p>".
+                    "<button type='submit' class='btn btn-primary' name='order_alcohol' value='".$row['id']."'>Order ".$row['name']."</button>".
+                    "</div></div>";
+                }
+            ?>
+    </form>
 </body>
 </html>
 <script src="./bootstrap/bootstrap.min.js"></script>

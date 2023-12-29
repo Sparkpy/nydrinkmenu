@@ -1,22 +1,26 @@
 <?php
     $db = mysqli_connect("127.0.0.1", "root", "", "nydrinkmenu");
+
+    if (!isset($_COOKIE["Name"])) {
+        $name = "Guest";
+    } else {
+        $name = $_COOKIE["Name"];
+    }
+
+    $order_id = rand(1000, 10000);
+
     if (isset($_POST['order_coffee'])) {
-        $order_id = rand(1000, 10000);
         $drink_id = $_POST['order_coffee'];
         $sugar = $_POST['sugar'];
 
-        if (!isset($_COOKIE["Name"])) {
-            $name = "Guest";
-        } else {
-            $name = $_COOKIE["Name"];
-        }
-
-        $query = "INSERT INTO orderlist (order_id, drink_id, sugar, username) VALUES ('".$order_id."','".$drink_id."','".$sugar."','".$name."')";
+        $query = "INSERT INTO orderlist (order_id, drink_id, sugar, username, type) VALUES ('".$order_id."','".$drink_id."','".$sugar."','".$name."', 'coffee')";
 
     }
     else if (isset($_POST['order_alcohol'])) {
         $drink_id = $_POST['order_alcohol'];
-    }
+
+        $query = "INSERT INTO orderlist (order_id, drink_id, username, type) VALUES ('".$order_id."','".$drink_id."','".$name."', 'alcohol')";
+    }   
 
     // Check if the cooldown cookie is set
     if (!isset($_COOKIE["QueryCooldown"])) {
