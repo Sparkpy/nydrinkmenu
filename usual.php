@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steven's Alcohol</title>
+    <title>The Usual</title>
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/global.css">
@@ -28,7 +28,13 @@
                         <a class="nav-link" href="./daniel.php">Daniel's Coffee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Stefan's Alcohol</a>
+                        <a class="nav-link" href="./steven.php">Stefan's Alcohol</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">The Usual</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pendingorders.php">Orders</a>
                     </li>
                     <li class='nav-item'>
                     <?php

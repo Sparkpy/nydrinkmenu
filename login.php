@@ -16,10 +16,13 @@
             $name = "Anastasija";
             break;
         case "v1ism":
-            $name = "Steven";
+            $name = "Stefan";
             break;
         case "cum":
-            $name = "Steven";
+            $name = "Stefan";
+            break;
+        case "steven":
+            $name = "Stefan";
             break;
         case "spark":
             $name = "Daniel";

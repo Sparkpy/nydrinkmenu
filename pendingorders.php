@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steven's Alcohol</title>
+    <title>Pending Orders</title>
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/global.css">
@@ -13,8 +13,8 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="./index.php"><img src="./images/navlogo.png" alt="Navbar Logo" height="56px"></a>
+          <div class="container">
+          <a class="navbar-brand" href="./index.php"><img src="./images/navlogo.png" alt="Navbar Logo" height="56px"></a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,13 +28,13 @@
                         <a class="nav-link" href="./daniel.php">Daniel's Coffee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Stefan's Alcohol</a>
+                        <a class="nav-link" href="./steven.php">Stefan's Alcohol</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./usual.php">The Usual</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./pendingorders.php">Orders</a>
+                        <a class="nav-link active" href="#">Orders</a>
                     </li>
                     <li class='nav-item'>
                     <?php
@@ -49,7 +49,7 @@
                     ?>
                 </ul>
             </div>
-        </div>
+      </div>
     </nav>
     <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
@@ -74,26 +74,40 @@
             </div>
         </div>
     </div>
-    <img src="./images/stevenalcohol.png" alt="Steven's Alcohol Logo"  style="width:100%; margin-bottom: 20px;">
-    <form action="./order.php" method="post">
-        <div class="card-group" id="cardGroup">
+    
+    <form action="./completeorder.php" method="post">
+        <div class="accordion" id="accordionExample">
             <?php
                 $db = mysqli_connect("127.0.0.1", "root", "", "nydrinkmenu");
-                $result = $db->query("SELECT * FROM `alcohol` ORDER BY `id`;");
+                $result = $db->query("SELECT * FROM `orderlist` ORDER BY `time`;");
+
                 for ($row_no = 0; $row_no < $result->num_rows; $row_no++) {
+                    // Read the orderlist
                     $result->data_seek($row_no);
                     $row = $result->fetch_assoc();
+
+                    // Select one drink
+                    $drinkdata = $db->query("SELECT * FROM `".$row['type']."` WHERE id='".$row['drink_id']."'");
+                    $drinkdata->data_seek(0);
+                    $rowc = $drinkdata->fetch_assoc();
                     echo
                     "<div class='card'>".
-                    "<img class='card-img-top' src='./images/alcohol/".$row['imagepath']."'/>".
+                    "<img class='card-img-top' src='./images/".$row['type']."/".$rowc['imagepath']."'/>".
                     "<div class='card-body'>".
-                    "<h4 class='card-title'>".$row['name']."<span class='text-muted fs-6' style='margin-left: 6px;'>".$row['volume']."ml</span></h4>".
-                    "<p class='card-text'>".$row['description']."</p>".
-                    "<button type='submit' class='btn btn-primary' name='order_alcohol' value='".$row['id']."'>Order ".$row['name']."</button>".
+                    "<h4 class='card-title'>".$rowc['name']."<span class='text-muted fs-6' style='margin-left: 6px;'>".$rowc['volume']."ml</span></h4>".
+                    "<h6 class='card-text'>Ordered by: <b>".$row['username']."</b><br>Spoons of Sugar: ".$row['sugar']."</h6>";
+
+                    if (isset($_COOKIE["Name"])) {
+                        if ($_COOKIE["Name"] == "Stefan" or $_COOKIE["Name"] == "Daniel") {
+                            echo "<button type='submit' class='btn btn-primary' name='complete_order' value='".$row['order_id']."'>Complete Order</button>";
+                        }
+                    }
+                    echo
                     "</div></div>";
                 }
                 mysqli_close($db);
             ?>
+        </div>
     </form>
 </body>
 </html>

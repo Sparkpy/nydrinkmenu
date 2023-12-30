@@ -14,9 +14,9 @@
         
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="./images/navlogo.png" alt="Navbar Logo" class="nav-img"></a>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+          <div class="container">
+          <a class="navbar-brand" href="./index.php"><img src="./images/navlogo.png" alt="Navbar Logo" height="56px"></a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -32,6 +32,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./steven.php">Stefan's Alcohol</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./usual.php">The Usual</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pendingorders.php">Orders</a>
+                    </li>
                     <li class='nav-item'>
                     <?php
                         // Sign In / Sign Out
@@ -45,7 +51,7 @@
                     ?>
                 </ul>
             </div>
-        </div>
+      </div>
     </nav>
     <?php
         if (isset($_GET['status'])) {

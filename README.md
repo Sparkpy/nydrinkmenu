@@ -12,7 +12,7 @@ Ideally I want the guests to walk in, scan a QR code and be sent to the menu web
 3. Vertically scrollable drink selection cards.
 4. Brand Select which changes the available coffee options
 5. Database where the orders are stored.
+6. A **pending drinks** page.
 
 ### Planned Features:
-1. A **pending drinks** page.
-2. Push notifications to the waiters (Me and my friend).
+1. Push notifications to the waiters (Me and my friend).

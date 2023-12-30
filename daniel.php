@@ -12,9 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-          <div class="container">
-          <a class="navbar-brand" href="./index.php"><img src="./images/navlogo.png" alt="Navbar Logo" height="56px"></a>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="./index.php"><img src="./images/navlogo.png" alt="Navbar Logo" height="56px"></a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,13 @@
                         <a class="nav-link active" href="#">Daniel's Coffee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./steven.php">Stefan's Alcohol</a>
+                        <a class="nav-link" href="./steven.php">Stefan's Alcohol</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./usual.php">The Usual</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pendingorders.php">Orders</a>
                     </li>
                     <li class='nav-item'>
                     <?php
@@ -43,7 +49,7 @@
                     ?>
                 </ul>
             </div>
-      </div>
+        </div>
     </nav>
     <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
@@ -72,8 +78,8 @@
     <!-- The actual drinks -->
     <form action="./order.php" method="post">
         <div class="sugar-slider">
-            <label for="customRange2" class="form-label">Sugar (0-3 spoons)</label>
-            <input type="range" name="sugar" class="form-range" min="0" max="3" id="customRange2">
+            <label for="customRange2" class="form-label">Sugar (0-2 spoons)</label>
+            <input type="range" name="sugar" class="form-range" min="0" max="2" id="customRange2">
         </div>
         <div class="brand d-flex justify-content-left" style="margin: 0 auto; margin-bottom: 0px; width:80%">
             <div class="form-check form-switch">
@@ -109,6 +115,7 @@
                 "<button type='submit' class='btn btn-primary' name='order_coffee' value='".$row['id']."'>Order ".$row['name']."</button>".
                 "</div></div>";
             }
+            mysqli_close($db);
         ?>
         </div>
     </form>
